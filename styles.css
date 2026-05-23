@@ -9,8 +9,8 @@
 
     --h1-size: 4rem;
     --h1-height: 1;
-    --h2-size: 3rem;
-    --h2-height: 1.35;
+    --h2-size: 2.4rem;
+    --h2-height: 1.25;
     --h3-size: 2rem;
     --h4-size: 1.4rem;
     --h5-size: 1rem;
@@ -33,6 +33,7 @@
     --spacing-md: 16px;
     --spacing-l: 32px;
     --spacing-xl: 64px;
+    --content-width: 1144px;
 
 
 }
@@ -42,6 +43,10 @@ body {
     padding: 0;
     font-family: var(--main-font);
     color: var(--dark-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 /* Generic tag styles for consistency */
@@ -53,6 +58,7 @@ h5,
 h6 {
     font-family: var(--heading-font);
     font-weight: 600;
+    margin: var(--spacing-md) 0;
 }
 
 h1 {
@@ -193,7 +199,9 @@ button:active {
 
 
 .primaryBtn.btnArrow::after,
-.secondaryBtn.btnArrow::after, .ternaryBtn.btnArrow::after {
+.secondaryBtn.btnArrow::after,
+.ternaryBtn.btnArrow::after,
+.quadBtn.btnArrow::after {
     content: "";
     display: inline-block;
     width: 25px;
@@ -210,10 +218,202 @@ button:active {
     color: var(--light-text-color);
 }
 
-.ternaryBtn{
+.ternaryBtn {
     background-color: var(--blue-1);
     color: var(--light-text-color);
 }
 
+.quadBtn {
+    background-color: var(--purple-1);
+    color: var(--light-text-color);
+}
+
+/* Two Column generic layout */
+
+.twoCol {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    column-gap: 40px;
+    box-sizing: border-box;
+}
+
+.left {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    box-sizing: border-box;
+}
+
+.right {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    box-sizing: border-box;
+}
+
 /* Actual CSS for individual elements */
 
+
+/* Header */
+header {
+    width: 100%;
+    max-width: var(--content-width);
+    box-sizing: border-box;
+    padding: var(--spacing-l) var(--spacing-md);
+}
+
+.mainNav {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.mainNav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.mainNav a {
+    font-weight: bold;
+    color: var(--light-text-color);
+}
+
+.mainNav a:hover {
+    color: var(--light-text-color);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.mainNav img {
+    transition: transform 0.2s ease-in-out;
+}
+
+.mainNav img:hover {
+    transform: scale(1.2);
+}
+
+
+.headerBtnContainer {
+    display: flex;
+    margin-top: var(--spacing-md);
+}
+
+.hero {
+    margin-top: var(--spacing-xl);
+}
+
+.hero p {
+    width: 75%;
+}
+
+.heroPhoneContainer {
+    align-items: flex-end;
+}
+
+.heroPhone {
+    width: 350px;
+}
+
+.hero .left {
+    align-self: stretch;
+}
+
+.companyGrid {
+    display: grid;
+    width: 100%;
+    row-gap: 30px;
+    margin: var(--spacing-xl) 0;
+    grid-template: 1fr 1fr / repeat(4, 1fr);
+}
+
+
+.companyGrid img {
+    width: 50%;
+    min-width: 100px;
+
+    transition: transform 0.2s ease-in-out;
+}
+
+.companyGrid img:hover {
+    transform: translateY(-6px);
+}
+
+.companyGrid>div>a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+main {
+    width: 100%;
+    max-width: var(--content-width);
+    box-sizing: border-box;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+
+.unifiedPlatform {
+    margin-bottom: var(--spacing-xl);
+}
+
+.unifiedPlatform h2 {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.unifiedPlatform .twoCol {
+    margin: var(--spacing-l) 0 var(--spacing-md) 0;
+}
+
+
+.demoGrid {
+    margin: calc(var(--spacing-xl)*2) 0;
+    display: grid;
+    grid-template-areas:
+        "a b b"
+        "c b b"
+        "c d d"
+        "c d d";
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 20px
+}
+
+.demoGrid img {
+    width: 100%;
+}
+
+.demo1 {
+    grid-area: a;
+}
+
+.demo2 {
+    grid-area: b;
+}
+
+.demo3 {
+    grid-area: c;
+}
+
+.demo4 {
+    grid-area: d;
+}
+
+/* Notes for responsiveness 
+    900px remove hero phone
+    800px for nav switch to burger
+*/
