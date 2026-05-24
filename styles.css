@@ -11,8 +11,8 @@
     --h1-height: 1;
     --h2-size: 2.4rem;
     --h2-height: 1.25;
-    --h3-size: 2rem;
-    --h4-size: 1.4rem;
+    --h3-size: 1.5rem;
+    --h4-size: 1.2rem;
     --h5-size: 1rem;
     --h6-size: 0.75rem;
     --subtitle-size: 1.1rem;
@@ -131,8 +131,6 @@ button:active {
 }
 
 /* Overused element styles */
-
-/* Generic containers that have an oblique line in their background */
 .obliqueContainer {
     position: relative;
     overflow: hidden;
@@ -228,7 +226,6 @@ button:active {
     color: var(--light-text-color);
 }
 
-/* Two Column generic layout */
 
 .twoCol {
     display: flex;
@@ -256,15 +253,25 @@ button:active {
     box-sizing: border-box;
 }
 
+.sectionContainer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-l) var(--spacing-md);
+}
+
 /* Actual CSS for individual elements */
 
 
 /* Header */
 header {
     width: 100%;
-    max-width: var(--content-width);
     box-sizing: border-box;
-    padding: var(--spacing-l) var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
 }
 
 .mainNav {
@@ -273,6 +280,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: var(--content-width);
 }
 
 .mainNav ul {
@@ -356,12 +364,19 @@ header {
     justify-content: center;
 }
 
+/* main */
 
 main {
     width: 100%;
-    max-width: var(--content-width);
     box-sizing: border-box;
-    padding: var(--spacing-xl) var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    width: 100%;
+    max-width: var(--content-width);
 }
 
 
@@ -413,7 +428,183 @@ main {
     grid-area: d;
 }
 
+.api {
+    color: var(--light-text-color);
+}
+
+.apiDemo {
+    width: 80%;
+    border-radius: 15px;
+}
+
+.api .right {
+    justify-content: center;
+    align-self: stretch;
+}
+
+.apiDemo:nth-of-type(1) {
+    margin-bottom: var(--spacing-md);
+}
+
+.card {
+    margin: var(--spacing-l) 0;
+}
+
+.card img {
+    width: 40px;
+}
+
+.card h3 {
+    margin: var(--spacing-sm) 0;
+}
+
+.api .card button {
+    color: var(--blue-1);
+}
+
+.api .card button::after {
+    background-image: url("assets/arrow-right-blue.svg");
+}
+
+.api h2 {
+    margin: var(--spacing-sm) 0 var(--spacing-md) 0;
+}
+
+.api .subtitle2 {
+    margin: 0;
+}
+
+.api>.left>button {
+    color: var(--primary-accent);
+}
+
+.api>.left>button::after {
+    background-image: url("assets/arrow-right-dark.svg");
+}
+
+
+.whySwipe .card {
+    box-sizing: border-box;
+    width: 250px;
+}
+
+.whySwipe .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: var(--spacing-md);
+}
+
+.globalScale {
+    padding: calc(var(--spacing-xl) * 2) 0;
+    color: var(--light-text-color);
+    position: relative;
+    z-index: 0;
+}
+
+.globalScale>div:nth-of-type(1) {
+    width: 50%;
+}
+
+.globalScale a {
+    color: var(--blue-1);
+}
+
+.globalScale a:hover {
+    color: var(--purple-2);
+}
+
+
+.globalScale .cardContainer {
+    margin-top: calc(var(--spacing-xl) * 2);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: var(--spacing-md);
+}
+
+.globalScale .card {
+    width: 250px;
+    box-sizing: border-box;
+}
+
+.globalScale .card h3 {
+    border-left: 3px solid var(--blue-1);
+    padding-left: var(--spacing-sm);
+}
+
+#globalPhoto {
+    max-width: 850px;
+    position: absolute;
+    top: -5%;
+    right: -20%;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+
+.swipeSessions {
+    padding: calc(var(--spacing-xl)*2) 0;
+}
+
+.swipeSessions .right {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background: linear-gradient(to right, #3f2b96, #6d1186);
+    padding: var(--spacing-l) var(--spacing-l);
+    border-radius: 14px;
+    position: relative;
+    justify-content: space-between;
+    align-self: stretch;
+}
+
+
+.swipeSessions .right::before {
+    background-color: white;
+}
+
+.swipeSessions .imgContainer {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    margin-bottom: var(--spacing-l);
+    justify-content: flex-start;
+    top: 45%;
+}
+
+.swipeSessions .imgContainer img {
+    width: 80px;
+}
+
+.swipeSessions .imgContainer img:nth-of-type(2) {
+    transform: translateX(-20%);
+}
+
+
+
+#swipeSessionsImg {
+    width: 100%;
+    max-width: 450px;
+    align-self: center;
+    margin: var(--spacing-l) 0 calc(var(--spacing-xl)*3) 0;
+}
+
+
+.swipeSessions .left {
+    margin: 0;
+    align-self: stretch;
+}
+
+.specialCol {
+    flex-direction: row;
+}
+
+.gettingStarted>.left>p {
+    margin: var(--spacing-l) 0;
+}
+
 /* Notes for responsiveness 
-    900px remove hero phone
-    800px for nav switch to burger
+    1100px Make api section mobile-like
+    900px remove hero phone; 
+    800px for nav switch to burger; change layout of demo section to mobile-like
 */
