@@ -27,7 +27,7 @@
     --bg-light: #f7f9fc;
     --primary-accent: #0a2540;
     --primary-accent-light: #257bd2;
-    --bg-light-2: #bcbcbca4;
+    --bg-light-2: #bdbdbd9e;
 
     --spacing-sm: 8px;
     --spacing-md: 16px;
@@ -39,10 +39,12 @@
 }
 
 body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     font-family: var(--main-font);
     color: var(--dark-text-color);
+    background-color: var(--bg-light);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,7 +136,7 @@ button:active {
 .obliqueContainer {
     position: relative;
     overflow: hidden;
-    z-index: -2;
+    z-index: 0;
 }
 
 .obliqueContainer::before {
@@ -304,11 +306,13 @@ header {
     text-underline-offset: 4px;
 }
 
-.mainNav img {
+.mainNav img,
+#logoBottom {
     transition: transform 0.2s ease-in-out;
 }
 
-.mainNav img:hover {
+.mainNav img:hover,
+#logoBottom:hover {
     transform: scale(1.2);
 }
 
@@ -362,6 +366,23 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.navContainer {
+    background-color: var(--purple-2);
+}
+
+.heroContainer {
+    background-color: var(--bg-light);
+}
+
+#navBtn {
+    color: var(--light-text-color);
+}
+
+#navBtn::after {
+    background-image: url("assets/arrow-right-light.svg")
 }
 
 /* main */
@@ -430,6 +451,7 @@ section {
 
 .api {
     color: var(--light-text-color);
+    transform: rotate(-10deg) scale(0.5);
 }
 
 .apiDemo {
@@ -500,6 +522,7 @@ section {
     color: var(--light-text-color);
     position: relative;
     z-index: 0;
+    transform: rotate(-10deg) scale(0.5);
 }
 
 .globalScale>div:nth-of-type(1) {
@@ -602,6 +625,123 @@ section {
 .gettingStarted>.left>p {
     margin: var(--spacing-l) 0;
 }
+
+.unifiedPlatformContainer {
+    background-color: var(--bg-light);
+}
+
+.apiContainer {
+    background-color: var(--primary-accent);
+    margin: 400px 0;
+    transform: rotate(10deg) scale(2);
+}
+
+.whySwipeContainer {
+    background-color: var(--bg-light);
+}
+
+.globalScaleContainer {
+    background-color: var(--primary-accent);
+    /* padding: calc(var(--spacing-xl)*3) var(--spacing-md); */
+    margin: 600px 0;
+    transform: rotate(10deg) scale(2);
+}
+
+.swipeSessionsContainer {
+    background-color: var(--bg-light);
+}
+
+.gettingStartedContainer {
+    background-color: var(--bg-light);
+    padding: 0 var(--spacing-md) calc(var(--spacing-xl)*3) var(--spacing-md);
+}
+
+.companyGridContainer{
+    background-color: var(--light-text-color);
+}
+/* Footer */
+
+footer {
+    color: var(--light-text-color);
+    width: 100%;
+    background-color: rebeccapurple;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerContainer {
+    width: 100%;
+    max-width: var(--content-width);
+    box-sizing: border-box;
+    padding: var(--spacing-l) var(--spacing-md);
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerMainLists {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-md);
+    align-self: stretch;
+}
+
+footer>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footerMainLists a {
+    color: var(--light-text-color);
+}
+
+.footerMainLists a:hover {
+    text-decoration: underline;
+    color: var(--light-text-color);
+}
+
+.footerListImage {
+    width: 20px;
+    filter: invert();
+}
+
+.footerSecondaryList {
+    margin: var(--spacing-md) 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-md);
+}
+
+.listTitles {
+    font-weight: bold;
+    font-family: var(--heading-font);
+    font-size: var(--h4-size);
+}
+
+#logoBottom {
+    width: 100px;
+}
+
+
+/* Selections */
+
+::selection{
+    background-color:gold;
+    color: black;
+}
+
 
 /* Notes for responsiveness 
     1100px Make api section mobile-like

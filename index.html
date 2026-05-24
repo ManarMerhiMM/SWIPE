@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        <div class="sectionContainer">
+        <div class="sectionContainer navContainer">
             <nav class="mainNav">
 
                 <a title="Back to homepage" href="index.html"><img src="assets/logo-white.svg" alt="Swipe's Logo"></a>
@@ -28,12 +28,12 @@
                     <li><a href="#">Resources</a></li>
                     <li><a href="#">Pricing</a></li>
                 </ul>
-                <button class="secondaryBtn">Sign in</button>
+                <button class="btnArrow" id="navBtn">Sign in</button>
 
             </nav>
         </div>
 
-        <div class="sectionContainer">
+        <div class="sectionContainer heroContainer">
             <section class="twoCol hero">
                 <div class="left">
                     <h1>Payments infrastructure for the world</h1>
@@ -51,7 +51,7 @@
             </section>
         </div>
 
-        <div class="sectionContainer">
+        <div class="sectionContainer companyGridContainer">
             <section class="companyGrid">
                 <div>
                     <a target="_blank" href="https://www.instacart.com/"> <img src="assets/instacart.png"
@@ -86,7 +86,7 @@
         </div>
     </header>
     <main>
-        <div class="sectionContainer">
+        <div class="sectionContainer unifiedPlatformContainer">
             <section class="unifiedPlatform">
 
                 <p class="subtitle1">Unified Platform</p>
@@ -142,7 +142,7 @@
         </div>
 
 
-        <div class="sectionContainer">
+        <div class="sectionContainer apiContainer">
             <section class="api twoCol">
                 <div class="left">
                     <p class="subtitle2">Designed for engineers</p>
@@ -178,7 +178,7 @@
         </div>
 
 
-        <div class="sectionContainer">
+        <div class="sectionContainer whySwipeContainer">
             <section class="whySwipe">
                 <p class="subtitle1">Why Swipe</p>
                 <h2>A tech-first approach to finance</h2>
@@ -221,7 +221,7 @@
         </div>
 
 
-        <div class="sectionContainer">
+        <div class="sectionContainer globalScaleContainer">
             <section class="globalScale">
                 <div>
                     <p class="subtitle2">Global scale</p>
@@ -261,7 +261,7 @@
         </div>
 
 
-        <div class="sectionContainer">
+        <div class="sectionContainer swipeSessionsContainer">
             <section class="swipeSessions twoCol">
                 <div class="card left">
                     <p class="subtitle1">Virtual events</p>
@@ -283,15 +283,16 @@
             </section>
         </div>
 
-        <div class="sectionContainer">
+        <div class="sectionContainer gettingStartedContainer">
             <section class="gettingStarted twoCol">
                 <div class="left">
                     <h2>What are you waiting for?</h2>
-                    <p>Explore 
-                        <a href="index.html">Swipe</a> 
+                    <p>Explore
+                        <a href="index.html">Swipe</a>
                         now, or create an account and start accepting payments
-                        today! If you need a custom package for your business, let's chat today.</p>
-                        <button class="btnArrow quadBtn">Start now</button>
+                        today! If you need a custom package for your business, let's chat today.
+                    </p>
+                    <button class="btnArrow quadBtn">Start now</button>
                 </div>
                 <div class="right twoCol specialCol">
                     <div class="card left">
@@ -310,7 +311,54 @@
             </section>
         </div>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="footerContainer">
+            <div>
+                <a href="index.html">
+                    <img id="logoBottom" src="assets/logo-white.svg" alt="swipe dark logo">
+                </a>
+
+                <ul class="footerSecondaryList">
+                    <li>
+                        <img class="footerListImage" src="assets/location-icon.png" alt="">
+                        United States
+                    </li>
+                    <li>
+                        <img class="footerListImage" src="assets/comment-icon.png" alt="">
+                        English (United States)
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="footerMainLists">
+                <li class="listTitles">Products</li>
+                <li><a href="#">Atlas</a></li>
+                <li><a href="#">Billing</a></li>
+                <li><a href="#">Invoicing</a></li>
+                <li><a href="#">Payments</a></li>
+                <li><a href="#">Checkout</a></li>
+                <li><a href="#">Identity</a></li>
+            </ul>
+            <ul class="footerMainLists">
+                <li class="listTitles">Use Cases</li>
+                <li><a href="#">eCommerce</a></li>
+                <li><a href="#">SaaS</a></li>
+                <li><a href="#">Marketplaces</a></li>
+                <li><a href="#">Embedded Finance</a></li>
+                <li><a href="#">Crypto</a></li>
+                <li><a href="#">Creator Economy</a></li>
+            </ul>
+            <ul class="footerMainLists">
+                <li class="listTitles">Resources</li>
+                <li><a href="#">Support Center</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Licenses</a></li>
+                <li><a href="#">Privacy & Terms</a></li>
+                <li><a href="#">Cookie Settings</a></li>
+            </ul>
+        </div>
+    </footer>
     <script src="main.js"></script>
 </body>
 
