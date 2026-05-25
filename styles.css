@@ -189,6 +189,7 @@ button:active {
     height: 25px;
     background-image: url(assets/arrow-right-purple.svg);
     background-size: contain;
+    background-repeat: no-repeat;
 
     transition: transform 0.2s ease;
 }
@@ -208,6 +209,7 @@ button:active {
     height: 25px;
     background-image: url(assets/arrow-right-light.svg);
     background-size: contain;
+    background-repeat: no-repeat;
 
     transition: transform 0.2s ease;
 }
@@ -371,18 +373,98 @@ header {
 
 .navContainer {
     background-color: var(--purple-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .heroContainer {
     background-color: var(--bg-light);
 }
 
-#navBtn {
+.navBtn {
     color: var(--light-text-color);
 }
 
-#navBtn::after {
+.navBtn::after {
     background-image: url("assets/arrow-right-light.svg")
+}
+
+
+.burger {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.burger div {
+    height: 4px;
+    border-radius: 10px;
+    background-color: var(--light-text-color);
+
+    transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+}
+
+.activeBurger div:nth-of-type(1) {
+    transform: rotate(45deg) translateY(18px);
+}
+
+.activeBurger div:nth-of-type(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.activeBurger div:nth-of-type(3) {
+    transform: rotate(-45deg) translateY(-18px);
+}
+
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    background-color: var(--purple-2);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 6px 5px rgba(0, 0, 0, 0.319);
+    transform: translateX(100%);
+
+    transition: transform 0.2s ease-in;
+}
+
+.sidebar ul {
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: var(--spacing-xl) 0;
+    list-style-type: none;
+    z-index: 1;
+}
+
+.sidebar a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.activeSidebar {
+    transform: translateX(0);
 }
 
 /* main */
@@ -426,7 +508,7 @@ section {
 
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
-    gap: 20px
+    gap: 20px;
 }
 
 .demoGrid img {
@@ -451,7 +533,6 @@ section {
 
 .api {
     color: var(--light-text-color);
-    transform: rotate(-10deg) scale(0.5);
 }
 
 .apiDemo {
@@ -522,7 +603,6 @@ section {
     color: var(--light-text-color);
     position: relative;
     z-index: 0;
-    transform: rotate(-10deg) scale(0.5);
 }
 
 .globalScale>div:nth-of-type(1) {
@@ -559,15 +639,15 @@ section {
 #globalPhoto {
     max-width: 850px;
     position: absolute;
-    top: -5%;
-    right: -20%;
+    top: 0;
+    right: 0%;
     z-index: -1;
     opacity: 0.2;
 }
 
 
 .swipeSessions {
-    padding: calc(var(--spacing-xl)*2) 0;
+    padding: 0;
 }
 
 .swipeSessions .right {
@@ -632,8 +712,8 @@ section {
 
 .apiContainer {
     background-color: var(--primary-accent);
-    margin: 400px 0;
-    transform: rotate(10deg) scale(2);
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-xl) var(--spacing-md);
 }
 
 .whySwipeContainer {
@@ -643,8 +723,7 @@ section {
 .globalScaleContainer {
     background-color: var(--primary-accent);
     /* padding: calc(var(--spacing-xl)*3) var(--spacing-md); */
-    margin: 600px 0;
-    transform: rotate(10deg) scale(2);
+    margin: var(--spacing-xl) 0;
 }
 
 .swipeSessionsContainer {
@@ -653,12 +732,13 @@ section {
 
 .gettingStartedContainer {
     background-color: var(--bg-light);
-    padding: 0 var(--spacing-md) calc(var(--spacing-xl)*3) var(--spacing-md);
+    padding: var(--spacing-xl) var(--spacing-md) calc(var(--spacing-xl)*3) var(--spacing-md);
 }
 
-.companyGridContainer{
+.companyGridContainer {
     background-color: var(--light-text-color);
 }
+
 /* Footer */
 
 footer {
@@ -697,12 +777,6 @@ footer ul {
     align-self: stretch;
 }
 
-footer>div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .footerMainLists a {
     color: var(--light-text-color);
 }
@@ -737,14 +811,265 @@ footer>div {
 
 /* Selections */
 
-::selection{
-    background-color:gold;
+::selection {
+    background-color: gold;
     color: black;
 }
 
+@media only screen and (max-width: 1200px) {
+    :root {
+        --h1-size: 3rem;
+        --p-size: 1rem;
+        --h2-size: 2rem;
+        --h3-size: 1.2rem;
+        --h4-size: 1rem;
+        --h5-size: 0.9rem;
+        --h6-size: 0.75rem;
+    }
 
-/* Notes for responsiveness 
-    1100px Make api section mobile-like
-    900px remove hero phone; 
-    800px for nav switch to burger; change layout of demo section to mobile-like
-*/
+    p {
+        margin: 0;
+    }
+
+    .subtitle1,
+    .subtitle2 {
+        margin: var(--spacing-md) 0;
+        font-size: 0.8rem;
+    }
+
+    .hero p {
+        margin-top: var(--spacing-md);
+    }
+
+    .api .left p {
+        margin: var(--spacing-md) 0;
+    }
+
+    .unifiedPlatform .twoCol {
+        margin: var(--spacing-md) 0;
+    }
+
+    .globalScale .cardContainer {
+        margin-top: var(--spacing-xl);
+    }
+
+    #globalPhoto {
+        width: 700px;
+        right: 0;
+        top: 10%;
+    }
+
+    button {
+        font-size: 0.85rem;
+    }
+
+    .swipeSessions .subtitle1 {
+        margin: var(--spacing-sm) 0;
+    }
+
+    .swipeSessions h2 {
+        margin: var(--spacing-md) 0;
+    }
+
+    .swipeSessions button {
+        margin-top: var(--spacing-md);
+    }
+
+    .swipeSessions .right .subtitle1 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+
+    #globalPhoto {
+        top: 20%;
+        right: 10%;
+        width: 500px;
+    }
+
+    .globalScale>div:nth-of-type(1) {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .api {
+        flex-direction: column;
+        row-gap: var(--spacing-l);
+    }
+
+    .api>.right {
+        align-items: center;
+    }
+
+    .api .twoCol {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .apiContainer {
+        margin: var(--spacing-l) 0;
+    }
+
+    .demoGrid {
+        margin-bottom: var(--spacing-l);
+    }
+}
+
+@media only screen and (max-width: 870px) {
+    .unifiedPlatform .twoCol {
+        flex-direction: column;
+        row-gap: var(--spacing-md);
+    }
+
+    .unifiedPlatform h2 {
+        width: 100%;
+        margin: var(--spacing-md) 0 var(--spacing-l) 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .sidebar {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+
+    .mainNav ul {
+        display: none;
+    }
+
+    .mainNav .navBtn {
+        display: none;
+    }
+
+    .mainNav img {
+        width: 100px;
+    }
+
+    .heroPhone {
+        display: none;
+    }
+
+    .hero p {
+        width: 100%;
+    }
+
+    .heroPhoneContainer {
+        display: none;
+    }
+
+    .hero .left {
+        flex-basis: 100%;
+    }
+
+    .demoGrid {
+        margin-top: 0;
+        grid-template-areas:
+            "a"
+            "b"
+            "c"
+            "c"
+            "d";
+
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+
+    .demoGrid img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .swipeSessions {
+        flex-direction: column;
+        row-gap: var(--spacing-l);
+    }
+
+    .swipeSessions .right {
+        width: 60%;
+        min-width: 350px;
+        margin: 0 auto;
+    }
+
+    .swipeSessions .imgContainer img {
+        width: 60px;
+    }
+
+    .swipeSessions .imgContainer {
+        top: 40%;
+        height: 60px;
+    }
+
+    #swipeSessionsImg {
+        margin: var(--spacing-md) 0 var(--spacing-xl);
+    }
+
+    .swipeSessions .right .subtitle1 {
+        font-size: var(--p-size);
+        margin: 0 0 var(--spacing-sm) 0;
+    }
+
+
+    .gettingStarted {
+        flex-direction: column;
+    }
+
+    .gettingStarted>.left>p {
+        margin: 0 0 var(--spacing-md) 0;
+    }
+
+    .gettingStarted .specialCol .card {
+        flex-basis: 35%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .footerContainer {
+        flex-wrap: wrap;
+        column-gap: 20px;
+    }
+
+    .footerMainLists {
+        box-sizing: border-box;
+        width: 40%;
+        margin-bottom: var(--spacing-l);
+    }
+
+    .footerSecondaryList {
+        margin: var(--spacing-md) 0 var(--spacing-xl) 0;
+    }
+
+    .secondaryListContainer {
+        flex-basis: 40%;
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #globalPhoto {
+        width: 400px;
+        top: 50%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    :root {
+        --h1-size: 2rem;
+    }
+
+    .companyGrid {
+        grid-template: repeat(4, 1fr) / 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .swipeSessions .right {
+        display: none;
+    }
+}
